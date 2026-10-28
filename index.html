@@ -88,6 +88,38 @@ nav .tb { padding: 16px 0; white-space: nowrap; }
 .proof span { font-size: 12px; color: var(--ink-2); }
 @media (max-width: 600px) { .proof { grid-template-columns: 1fr; } .proof div { padding: 14px 0; } }
 
+/* plain english */
+.pe { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px clamp(32px, 6vw, 96px); margin-top: clamp(40px, 6vw, 64px); }
+@media (max-width: 860px) { .pe { grid-template-columns: 1fr; } }
+.pe p { font-size: 16px; line-height: 1.55; max-width: 52ch; }
+.pe p + p { margin-top: 16px; }
+.pe p b { font-weight: 500; }
+.six { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.six a { display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.six a > span:first-child { font-size: 13px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.six b { font-weight: 500; font-size: 16px; letter-spacing: -.01em; }
+.six i { display: block; font-style: normal; font-size: 13px; color: var(--ink-2); margin-top: 2px; }
+.six a:hover b { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.demo { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: 32px; padding: 20px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  font: 500 clamp(26px, 3.2vw, 40px)/1.05 var(--sans); letter-spacing: -.04em; text-decoration: none; color: var(--ink); }
+.demo small { display: block; margin-top: 10px; font: 400 13px/1.45 var(--sans); letter-spacing: 0; color: var(--ink-2); max-width: 46ch; }
+.demo .ar { color: var(--accent); }
+.demo:hover .ar { transform: translate(3px, -3px); }
+.demo.sm { font-size: clamp(22px, 2.4vw, 28px); margin-top: 24px; padding: 16px 0; border-bottom-color: var(--line); }
+
+/* per-service plain explainer */
+.psvc { scroll-margin-top: 76px; }
+.whatis { margin-top: 18px; font-size: 15px; line-height: 1.55; max-width: 58ch; }
+.whatis b { font-weight: 500; }
+.plain { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 24px; margin-top: 8px; }
+@media (max-width: 860px) { .plain { grid-template-columns: 1fr; } }
+.plain > div { border-top: 1px solid var(--line); padding: 14px 0 4px; }
+.plain h4 { margin: 0 0 8px; font: 500 14px/1.3 var(--sans); }
+.plain p, .plain li { font-size: 14px; color: var(--ink-2); }
+.plain ol { margin: 0; padding: 0; list-style: none; counter-reset: o; }
+.plain li { counter-increment: o; display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 6px; padding: 3px 0; }
+.plain li::before { content: counter(o) "."; color: var(--ink); font-variant-numeric: tabular-nums; }
+
 /* work: spec ads */
 .reelbar { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-top: clamp(40px, 6vw, 64px); border-top: 1px solid var(--ink); }
 .reelbar .k { padding: 14px 0; }
@@ -312,7 +344,7 @@ footer .legal { grid-column: 1 / -1; font-size: 12px; padding-top: 20px; border-
   <div class="in">
     <a class="brand" href="#top"><b>Michael Joyce</b><span>MKJ · AI for local business</span></a>
     <nav aria-label="Main">
-      <a href="#work">Work</a><a href="#systems">Services</a><a href="#pricing">Pricing</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="portfolio.html">Portfolio</a>
+      <a href="#plain">What is this?</a><a href="#work">Work</a><a href="#systems">Services</a><a href="#pricing">Pricing</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="portfolio.html">Portfolio</a>
       <a class="tb" href="#walk">Book a free call</a>
     </nav>
   </div>
@@ -325,13 +357,42 @@ footer .legal { grid-column: 1 / -1; font-size: 12px; padding-top: 20px; border-
       <p class="lede" data-m style="--d:200ms">MKJ builds AI systems that answer your calls and messages, publish your content and grow your reviews. Your team spends less time on admin and more time with customers.</p>
       <div class="ctas" data-m style="--d:260ms">
         <a class="tb" href="#walk">Book a free consultation <span class="ar">&rarr;</span></a>
+        <a class="tb" href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener">Try the AI receptionist demo <span class="ar">&#8599;</span></a>
+        <a class="tb" href="#plain">What is this?</a>
         <a class="tb" href="#work">See the work</a>
-        <a class="tb" href="#cost">Estimate your savings</a>
       </div>
       <div class="proof" data-m style="--d:320ms">
         <div><b>No more voicemail</b><span>Your AI picks up the calls you miss</span></div>
         <div><b>Weekly content</b><span>12 videos and 4 ads a month</span></div>
         <div><b>More reviews</b><span>Tap-to-review cards</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plainx g" id="plain">
+    <div class="in">
+      <div class="head" data-m>
+        <h2>What this is, in plain English.</h2>
+        <p class="lede">Small businesses lose customers in small ways: a call that goes to voicemail during a rush, a Google listing with old hours, a happy customer who never leaves a review. MKJ sets up software that handles those jobs for you.</p>
+      </div>
+      <div class="pe">
+        <div data-m>
+          <p>"AI" here just means software that understands normal language and can reply in it, by voice or by text.</p>
+          <p>The main one is an <b>AI receptionist</b>. When you can't get to the phone, it picks up instead of voicemail. It answers from what you told us, like your prices, hours and service area, books the job, and texts the customer a confirmation. Anything about money, complaints or emergencies goes to you. If a caller asks whether it's an AI, it says so.</p>
+          <p>You don't need to learn anything technical. You tell us how your business runs, you approve everything before a customer sees or hears it, and every account stays yours. No contracts. Monthly services cancel with 30 days' notice. Michael works with every client himself.</p>
+          <a class="demo" href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener"><span>Talk to the demo receptionist<small>Opens in your browser and uses your microphone. Tell it a business name, then ask what a customer would ask. It answers like it works there.</small></span><span class="ar">&#8599;</span></a>
+        </div>
+        <div data-m style="--d:100ms">
+          <span class="k">The six things we do</span>
+          <ol class="six">
+          <li><a href="#s1"><span>01</span><span><b>Never miss a call</b><i>A voice, or a text, answers when you can't pick up.</i></span><span class="ar">&rarr;</span></a></li>
+          <li><a href="#s2"><span>02</span><span><b>Get found</b><i>Your business shows up correctly when people search nearby.</i></span><span class="ar">&rarr;</span></a></li>
+          <li><a href="#s3"><span>03</span><span><b>More reviews</b><i>An easy way for happy customers to leave a Google review.</i></span><span class="ar">&rarr;</span></a></li>
+          <li><a href="#s4"><span>04</span><span><b>Videos that bring customers in</b><i>Short videos, made and posted for you.</i></span><span class="ar">&rarr;</span></a></li>
+          <li><a href="#s5"><span>05</span><span><b>Look established</b><i>A logo and one matching look for cards, posts and signs.</i></span><span class="ar">&rarr;</span></a></li>
+          <li><a href="#s6"><span>06</span><span><b>Company brain</b><i>Answers your team's questions from your own documents.</i></span><span class="ar">&rarr;</span></a></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
@@ -379,7 +440,8 @@ footer .legal { grid-column: 1 / -1; font-size: 12px; padding-top: 20px; border-
           <p>Your phone rings like it always does, and you answer when you can. If nobody picks up after a few rings, the call rolls to your AI receptionist instead of voicemail. It answers in your own voice, your booker's, or a professional receptionist voice you pick, quotes your prices, checks your service area, books the job and texts the customer a confirmation. Anything about money, complaints or emergencies goes straight to you.</p>
           <div class="price">from $249<small>/ month</small></div>
           <p class="fine">Includes 400 call minutes a month, then billed per minute. Choose a cloned voice (yours or your booker's, only with written consent) or one of our professional voices, ready the same day. The assistant tells callers it's an AI assistant if they ask.</p>
-          <div class="ctas"><a class="tb" href="#walk">Book a demo</a><a class="tb" href="#pricing">See pricing</a><a class="tb" href="#" data-mka-open>Talk to my assistant</a></div>
+          <a class="demo sm" href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener"><span>Hear it: talk to the demo receptionist<small>In your browser, with your microphone.</small></span><span class="ar">&#8599;</span></a>
+          <div class="ctas"><a class="tb" href="#walk">Book a free call</a><a class="tb" href="#s1">See pricing</a><a class="tb" href="#" data-mka-open>Questions? Chat with the site assistant</a></div>
         </div>
         <div class="call" aria-label="Example call transcript" data-m style="--d:100ms">
           <span class="k">Example: a missed call, answered at 9:47 PM</span>
@@ -391,41 +453,53 @@ footer .legal { grid-column: 1 / -1; font-size: 12px; padding-top: 20px; border-
       </div>
 
       <div class="pricing" id="pricing">
-        <div class="head" data-m><h2>Six services. Pick what fits.</h2><p class="lede">Clear prices, no contracts. What's included, how long it takes and what it costs, for each one. We report real numbers every month and never promise results we can't control.</p></div>
+        <div class="head" data-m><h2>Six services. Pick what fits.</h2><p class="lede">Clear prices, no contracts. For each one: what it is in plain words, what happens on your end, what we need from you, your first week, and what it costs. We report real numbers every month and never promise results we can't control.</p></div>
         <div class="plist">
-          <div class="psvc" data-m><div class="pl"><span class="k">01</span><h3>Never miss a call</h3><p>Every call you can't pick up gets answered or texted back, so the customer books with you, not the next shop. <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener">Talk to the demo receptionist</a> (uses your mic).</p>
+          <div class="psvc" id="s1" data-m><div class="pl"><span class="k">01</span><h3>Never miss a call</h3><p>Every call you can't pick up gets answered or texted back, so the customer books with you, not the next shop. <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener">Talk to the demo receptionist &#8599;</a> (in your browser, uses your mic).</p>
+            <p class="whatis"><b>What it is.</b> When you can't get to the phone, a computer voice answers instead of voicemail. It knows your prices, hours and service area because you told us, and it can book the job. Text-back is the simpler version: it doesn't talk, it texts the caller your booking link right away.</p>
             <dl class="spec"><div><dt>Included</dt><dd>Text-back texts every missed caller your booking or quote link and answers common questions by text. Voice answers in a professional voice, quotes your prices and books into your calendar (400 call minutes a month). Signature uses your own voice or your booker's, with written consent, in English and Spanish (1,000 minutes). Money, complaints and emergencies always go to you.</dd></div><div><dt>How long</dt><dd>Most systems are live within 7 days of approving the plan.</dd></div><div><dt>What it costs</dt><dd>$99 to $399 a month, plus a one-time setup of $149 to $699. Extra minutes, phone numbers and texting fees at cost.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Text-back</b><span class="pw">Every missed call gets a text with your booking link</span><span class="pp">$99/mo<small>+ $149 setup</small></span><a class="tb go" href="https://buy.stripe.com/dRm8wRa3d0zHazW20ScV20f" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Voice</b><span class="pw">Answers in a professional voice and books the job</span><span class="pp">$249/mo<small>+ $499 setup</small></span><a class="tb go" href="https://buy.stripe.com/3cI4gB1wHdmt4bybBscV20g" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Signature</b><span class="pw">Your own voice, English and Spanish</span><span class="pp">$399/mo<small>+ $699 setup</small></span><a class="tb go" href="https://buy.stripe.com/5kQ7sN6R1cipdM87lccV20h" target="_blank" rel="noopener">Start</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>Your phone rings like normal. Answer when you can.</li><li>If nobody picks up after a few rings, the call goes to your assistant instead of voicemail.</li><li>It answers questions, offers times, books the job and texts the customer a confirmation.</li><li>Money, complaints and emergencies are sent straight to you.</li></ol></div><div><h4>What we need from you</h4><p>Your prices, hours, service area and the questions customers ask most. Access to your booking calendar if you want it to book. For Signature, a short voice recording and written consent from the person whose voice it is. We handle the phone setup with you.</p></div><div><h4>Your first week</h4><p>Setup and testing. You hear it and approve the scripts before any customer does. Most systems go live within 7 days of approving the plan. After that, a results text every Friday shows calls answered, jobs booked and missed calls recovered.</p></div></div>
           </div>
-          <div class="psvc" data-m><div class="pl"><span class="k">02</span><h3>Get found</h3><p>Show up on Google, Google Maps and ChatGPT when people look for what you do.</p>
+          <div class="psvc" id="s2" data-m><div class="pl"><span class="k">02</span><h3>Get found</h3><p>Show up on Google, Google Maps and ChatGPT when people look for what you do.</p>
+            <p class="whatis"><b>What it is.</b> When someone nearby searches for what you do, your business should show up with the right name, phone number, hours and photos. We set that up on Google, Google Maps, Apple Maps, Bing, Yelp and Nextdoor so every listing matches. Complete adds a simple one-page website where people can book, and a check of what ChatGPT and Google's AI say about you.</p>
             <dl class="spec"><div><dt>Included</dt><dd>Essentials sets up and fills out your Google Business Profile, with the same name, phone and hours on Apple Maps, Bing, Yelp and Nextdoor. Complete adds a one-page booking website and a check and fix of what ChatGPT and Google AI say about you. Ongoing keeps it current with weekly Google posts and a monthly search check.</dd></div><div><dt>How long</dt><dd>One-time projects get their dates in your written plan before we start.</dd></div><div><dt>What it costs</dt><dd>$399 or $699 one time. $99 a month to keep it current.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Essentials</b><span class="pw">Google profile plus Apple Maps, Bing, Yelp and Nextdoor</span><span class="pp">$399<small>one time</small></span><a class="tb go" href="https://buy.stripe.com/3cI4gBfnx6Y59vScFwcV205" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Complete</b><span class="pw">Essentials plus a booking website, and we check what ChatGPT says about you</span><span class="pp">$699<small>one time</small></span><a class="tb go" href="https://buy.stripe.com/5kQ7sN2AL2HP6jG34WcV206" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Ongoing</b><span class="pw">Weekly Google posts and listings kept current</span><span class="pp">$99/mo</span><a class="tb go" href="https://buy.stripe.com/28E6oJ6R16Y5gYk8pgcV20a" target="_blank" rel="noopener">Start</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>You give us your business details once.</li><li>We set up or clean up each listing so they all say the same thing.</li><li>With Ongoing, we post a weekly update to your Google profile and keep listings current.</li></ol></div><div><h4>What we need from you</h4><p>Your business name, address or service area, phone, hours, services and a few photos. Access to your Google Business Profile if you have one. Google sometimes asks the owner to verify the business; if it does, we walk you through it.</p></div><div><h4>Your first week</h4><p>We look at what's listed about you today and start correcting it. Dates for the one-time work are in your written plan.</p></div></div>
           </div>
-          <div class="psvc" data-m><div class="pl"><span class="k">03</span><h3>More reviews</h3><p>Turn happy customers into Google reviews, and reply to every one.</p>
+          <div class="psvc" id="s3" data-m><div class="pl"><span class="k">03</span><h3>More reviews</h3><p>Turn happy customers into Google reviews, and reply to every one.</p>
+            <p class="whatis"><b>What it is.</b> A simple way to get more Google reviews from customers you already have. The Kit is branded cards for your counter: a customer taps their phone on the card, or scans the QR code, and your Google review page opens. No app. The Engine sends customers a review request after each job and drafts a reply to every review for you to approve.</p>
             <dl class="spec"><div><dt>Included</dt><dd>The Kit is 3 branded tap-to-review cards, a counter sign with a QR code and 10 reply templates in your voice. The Engine sends a review request after each job, drafts a reply to every review and sends a monthly review report. Every customer is asked the same way, with no incentives.</dd></div><div><dt>How long</dt><dd>Engine + Kit includes a before-and-after review count at 30 days.</dd></div><div><dt>What it costs</dt><dd>$199 one time, $79 a month, or $249 for both and then $79 a month.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Kit</b><span class="pw">Tap-to-review cards, counter sign, reply templates</span><span class="pp">$199<small>one time</small></span><a class="tb go" href="https://buy.stripe.com/4gMeVfcbl8290Zm9tkcV207" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Engine</b><span class="pw">Automatic review requests and drafted replies</span><span class="pp">$79/mo</span><a class="tb go" href="https://buy.stripe.com/fZu6oJ2ALgyF5fCcFwcV20b" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Engine + Kit</b><span class="pw">Both, with a 30-day before-and-after count</span><span class="pp">$249<small>then $79/mo</small></span><a class="tb go" href="https://buy.stripe.com/eVq5kFgrBcipazWgVMcV20i" target="_blank" rel="noopener">Start</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>Put the cards and the counter sign where customers pay.</li><li>Ask every customer the same way. Google doesn't allow asking only the happy ones, or offering rewards.</li><li>Customers tap or scan, and leave the review on Google.</li><li>We draft a reply to each review. Nothing posts until you approve it.</li></ol></div><div><h4>What we need from you</h4><p>The link to your Google Business Profile, or access to it. For the Engine, how you keep track of finished jobs or visits, so the requests go out at the right time.</p></div><div><h4>Your first week</h4><p>The cards are designed for your business, and the dates are in your plan. With Engine + Kit we write down your review count at the start, so the 30-day before-and-after count is real.</p></div></div>
           </div>
-          <div class="psvc" data-m><div class="pl"><span class="k">04</span><h3>Videos that bring customers in</h3><p>Short videos for TikTok, Instagram and YouTube. We make them and post them for you. <a href="#work">See the spec work</a>.</p>
+          <div class="psvc" id="s4" data-m><div class="pl"><span class="k">04</span><h3>Videos that bring customers in</h3><p>Short videos for TikTok, Instagram and YouTube. We make them and post them for you. <a href="#work">See the spec work</a>.</p>
+            <p class="whatis"><b>What it is.</b> Short vertical videos, like the spec ads above, made for your business and posted to TikTok, Instagram or YouTube. You don't edit or post anything.</p>
             <dl class="spec"><div><dt>Included</dt><dd>Short videos with captions and hooks, made and posted for you. Starter is 4 videos a month on 1 platform. Standard is 12 videos and 4 ads on 2 platforms. Pro is 20 videos and 8 ads on 3 platforms, with a monthly content report.</dd></div><div><dt>How long</dt><dd>Monthly. Cancel with 30 days' notice.</dd></div><div><dt>What it costs</dt><dd>$149, $249 or $449 a month.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Starter</b><span class="pw">4 videos a month, 1 platform</span><span class="pp">$149/mo</span><a class="tb go" href="https://buy.stripe.com/bJe6oJ5MXgyFcI434WcV20c" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Standard</b><span class="pw">12 videos and 4 ads a month, 2 platforms</span><span class="pp">$249/mo</span><a class="tb go" href="https://buy.stripe.com/7sY9AVgrB96d37u7lccV20d" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Pro</b><span class="pw">20 videos and 8 ads a month, 3 platforms</span><span class="pp">$449/mo</span><a class="tb go" href="https://buy.stripe.com/3cIdRb5MXfuB23qbBscV20e" target="_blank" rel="noopener">Start</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>You tell us what you sell, who buys it and what you want more of.</li><li>We plan and make the month's videos.</li><li>You approve them.</li><li>We post them and send the monthly report.</li></ol></div><div><h4>What we need from you</h4><p>Posting access to the accounts, your logo, and any photos or clips you already have. Photos or clips help. The spec ads above were made using only each brand's own website.</p></div><div><h4>Your first week</h4><p>We agree on the month's plan together. Posting starts once you've approved the first videos.</p></div></div>
           </div>
-          <div class="psvc" data-m><div class="pl"><span class="k">05</span><h3>Look established</h3><p>Logos and brand design by a trained ad designer.</p>
+          <div class="psvc" id="s5" data-m><div class="pl"><span class="k">05</span><h3>Look established</h3><p>Logos and brand design by a trained ad designer.</p>
+            <p class="whatis"><b>What it is.</b> A logo, and one matching look for everything customers see: business cards, social posts, signs and your van. Designed by Michael, who studies Advertising Design.</p>
             <dl class="spec"><div><dt>Included</dt><dd>A Logo comes in 3 directions with 2 rounds of edits, a color palette and files for print and social. The Brand kit adds business cards, social templates and a brand board any printer can use. Vehicle and sign work is designed as print-ready files for a local shop.</dd></div><div><dt>How long</dt><dd>Dates are set in your written plan before we start.</dd></div><div><dt>What it costs</dt><dd>$299 or $599 one time. Wraps and signs from $399, quoted per job.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Logo</b><span class="pw">3 directions, 2 rounds of edits, print and social files</span><span class="pp">$299<small>one time</small></span><a class="tb go" href="https://buy.stripe.com/28E4gBejt2HP8rOgVMcV208" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Brand kit</b><span class="pw">Logo plus business cards, social templates, brand board</span><span class="pp">$599<small>one time</small></span><a class="tb go" href="https://buy.stripe.com/fZudRb2ALaahdM88pgcV209" target="_blank" rel="noopener">Start</a></div>
             <div class="prow"><b>Vehicle and signs</b><span class="pw">Van wrap, door magnets, yard signs, banners</span><span class="pp">from $399</span><a class="tb go" href="#walk">Quote</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>A short call about your business and the looks you like.</li><li>For a logo, you get 3 different directions and pick one.</li><li>Two rounds of changes.</li><li>You get the final files, ready for any printer and for social media.</li></ol></div><div><h4>What we need from you</h4><p>Your business name, what you do, any colors or logo you already have, and a few examples of looks you like.</p></div><div><h4>Your first week</h4><p>The kickoff call. Exact dates for the directions and changes are in your written plan.</p></div></div>
           </div>
-          <div class="psvc" data-m><div class="pl"><span class="k">06</span><h3>Company brain</h3><p>An AI that knows your business: your documents, email, calendar, prices and policies. Your team asks a question and gets the answer with where it came from, plus a short briefing every morning. It runs on the same system MKJ uses to run itself.</p>
+          <div class="psvc" id="s6" data-m><div class="pl"><span class="k">06</span><h3>Company brain</h3><p>An AI that knows your business: your documents, email, calendar, prices and policies. Your team asks a question and gets the answer with where it came from, plus a short briefing every morning. It runs on the same system MKJ uses to run itself.</p>
+            <p class="whatis"><b>What it is.</b> A private assistant for your team. Think of a coworker who has read your documents, email, calendar, prices and policies. Someone asks "what do we charge for this?" or "what's our policy on that?" and it answers, showing the document the answer came from. It also sends a short briefing each morning.</p>
             <dl class="spec"><div><dt>Included</dt><dd>Connected to the tools you already use, set up and tested with your team. Answers come with their source.</dd></div><div><dt>How long</dt><dd>Scoped on a call before anything is quoted.</dd></div><div><dt>What it costs</dt><dd>$2,500 setup. Book a call to scope it.</dd></div></dl></div>
             <div class="pr"><div class="prow"><b>Company Brain</b><span class="pw">Connected to the tools you already use, set up and tested with your team</span><span class="pp">$2,500<small>setup</small></span><a class="tb go" href="#walk">Book a call</a></div></div>
+            <div class="plain"><div><h4>On your end, step by step</h4><ol><li>A call to decide what it should read and who will use it.</li><li>We connect it to those tools and test it with your team.</li><li>Your team asks it questions in normal words.</li></ol></div><div><h4>What we need from you</h4><p>Access to the tools it should learn from, for example your shared files, email or calendar, and one person on your team to test it with us.</p></div><div><h4>Your first week</h4><p>The scoping call. The setup plan and dates come after that.</p></div></div>
           </div>
         </div>
         <p class="pnote">Pair any two monthly services and save 15%. Questions first? <a href="#walk">Book a free walkthrough.</a></p>
@@ -589,7 +663,7 @@ footer .legal { grid-column: 1 / -1; font-size: 12px; padding-top: 20px; border-
 <footer class="g">
   <div class="in">
     <div><b>MKJ · Michael Joyce</b><span>AI systems for local business. Pittsburgh, Pennsylvania.</span></div>
-    <div><b>Site</b><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="portfolio.html">Portfolio</a></div>
+    <div><b>Site</b><a href="#plain">What is this?</a><a href="https://elevenlabs.io/app/talk-to?agent_id=agent_2801m5xe04rwfdc9c77kn9atqfzt" target="_blank" rel="noopener">Demo receptionist</a><a href="#work">Work</a><a href="#pricing">Pricing</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="portfolio.html">Portfolio</a></div>
     <div><b>Contact</b><a href="https://calendly.com/mkj-marketing/30min" target="_blank" rel="noopener">Book a free call</a><a href="mailto:joycemarketingco@gmail.com">Email</a><a href="https://www.linkedin.com/in/michaelkanejoyce" target="_blank" rel="noopener">LinkedIn</a></div>
     <p class="legal">Spec ads on this page are unpaid samples, not affiliated with the brands shown. Prices in USD.</p>
   </div>
