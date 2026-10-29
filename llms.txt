@@ -1,0 +1,29 @@
+# MKJ (Michael Joyce)
+
+> MKJ is a Pittsburgh, PA agency run by Michael Kane Joyce that sets up AI systems for local service businesses (cleaners, detailers, lawn care, handymen, salons, restaurants): an AI receptionist that answers missed calls and books jobs, local search listings (Google, Maps, ChatGPT), Google review kits, short-form video, logo/brand design, and a private "company brain" assistant. Prices are published, there are no contracts, and most systems go live within 7 days of approving the plan.
+
+Key facts (from the site):
+- Based in Pittsburgh, Pennsylvania. Michael works with every client himself.
+- No contracts; monthly services cancel with 30 days' notice. Prices in USD. Pair any two monthly services and save 15%.
+- Clients own every account, phone number, profile and piece of content.
+- MKJ is new: tap-to-review cards are in use at a Pittsburgh restaurant; the ads on the site are unpaid spec work.
+- Contact: joycemarketingco@gmail.com · free 30-minute call: https://calendly.com/mkj-marketing/30min · @michaelkanejoyce
+
+## Pages
+- [Home: services, pricing, process, FAQ](https://quegan.github.io/mkj-site/): everything about MKJ on one page
+- [Full text for LLMs](https://quegan.github.io/mkj-site/llms-full.txt): plain-text copy of all services, prices and FAQ
+- [Portfolio](https://quegan.github.io/mkj-site/portfolio.html): Michael Kane Joyce's design portfolio
+
+## Services and prices
+- Never miss a call (AI receptionist): Text-back $99/mo + $149 setup; Voice $249/mo + $499 setup (400 min); Signature, own voice, English and Spanish, $399/mo + $699 setup (1,000 min)
+- Get found (Google Business Profile, Apple Maps, Bing, Yelp, Nextdoor, AI answer check): Essentials $399 once; Complete $699 once; Ongoing $99/mo
+- More reviews: Kit $199 once; Engine $79/mo; Engine + Kit $249 then $79/mo
+- Videos (TikTok, Instagram, YouTube): Starter $149/mo; Standard $249/mo; Pro $449/mo
+- Look established (logo and brand): Logo $299; Brand kit $599; vehicle and signs from $399
+- Company brain (private AI assistant over your documents): $2,500 setup
+
+## Optional
+- [LinkedIn](https://www.linkedin.com/in/michaelkanejoyce)
+- [Instagram](https://www.instagram.com/michaelkanejoyce)
+- [TikTok](https://www.tiktok.com/@michaelkanejoyce)
+- [YouTube](https://www.youtube.com/@michaelkanejoyce)
